@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Регистрация и вход через почту и социальную сеть Вконтакте{% endblock %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form action="{{ url_for('email_registration') }}" method="POST">
+
+                    <div class="alert alert-primary text-center" role="alert">
+                        Регистрация через email
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputEmail">Ваше имя</label>
+                        <input type="text" class="form-control" name="InputName" id="InputName"
+                            placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputEmail">Email адрес</label>
+                        <input type="email" class="form-control" name="InputEmail" id="InputEmail"
+                            aria-describedby="emailHelp" placeholder="Введите email">
+                        <small id="emailHelp" class="form-text text-muted">Мы никому не покажем ваш email.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputPassword">Пароль</label>
+                        <input type="password" class="form-control" name="InputPassword" id="InputPassword"
+                            placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+
+                </form>
+            </div>
+            <div class="col-4">
+                <form action="{{ url_for('email_login') }}" method="POST">
+
+                    <div class="alert alert-secondary text-center" role="alert">
+                        Вход через email
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LoginEmail">Email адрес</label>
+                        <input type="email" class="form-control" name="email" id="LoginEmail"
+                            placeholder="Введите email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LoginPassword">Пароль</label>
+                        <input type="password" class="form-control" name="password" id="LoginPassword"
+                            placeholder="Введите пароль">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </form>
+
+            </div>
+            <div class="col-4-text-center">
+                <div class="alert alert-success text-center" role="alert">
+                    Вход через Вконтакте
+                </div>
+                <a href="https://oauth.vk.com/authorize?client_id=7811259&display=page&redirect_uri=http://127.0.0.1:5000/vk_callback&scope=friends&response_type=code&v=5.130">
+                    <picture>
+                        <img src="/static/VK_Full_Logo.svg" class="img-fluid img-thumbnail" alt="">
+                    </picture>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+{% endblock %}
